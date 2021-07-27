@@ -1,14 +1,13 @@
 .parent {
   position: relative;
   top: 0;
-  left: 0;
+  left: 0;  
+  background-color: transparent;
+
 }
 .image1 {
-  display: none
+background-color: transparent;
 }
 .image2 {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  border: 1px green solid;
+  background-color: transparent;
 }
