@@ -1,13 +1,82 @@
-.parent {
+.brightness {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: inline-block;
+}
+
+.brightness > img {
+    opacity: .5;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.brightness > img:hover {
+    opacity: 1.0;
+}
+
+.img1 {
   position: relative;
   top: 0;
-  left: 0;  
-  background-color: transparent;
+  left: 0;
+  border: 1px red solid;
+}
 
+.img2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 1px green solid;
 }
-.image1 {
-background-color: transparent;
+
+.container {
+  position: relative;
+  z-index: 4;
+  transform: scale(0%, 0%);
 }
-.image2 {
-  background-color: transparent;
+
+.rectangle {
+  width: 400px;
+  background: #0d2345;
+  pointer-events : none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-height:100px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 25px;
+}
+
+
+.rectangle:before {
+  content: "";
+  position: absolute;
+  top: 250px;
+  left: -250px;
+  width: 40px;
+  height: 40px;
+  border: 10px solid #0d2345;
+  border-radius: 35px;
+  z-index: -1;
+}
+
+.rectangle:after{
+  content: "";
+  width: 300px;
+  height: 10px;
+  top: 150px;
+  left: -250px;
+  background: #0d2345;
+  position: absolute;
+  transform: rotate(-45deg);
+  z-index: -2;
+}
+
+.brightness > img:hover + .container{
+  transform: scale(100%, 100%)
 }
