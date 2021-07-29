@@ -1,43 +1,48 @@
-.brightness {
+/* Brightness container serves to contain several images. Its purpose is to define a z-index so as to place all elements at a given z-index*/
+.zerath_brightness {
     position: relative;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: none; /* We don't want any color in here */
     display: inline-block;
 }
 
-.brightness > img {
+/* Any image in the brightness container starts with a .5 opacity*/
+.zerath_brightness > img {
     opacity: .5;
     top: 0;
     left: 0;
     z-index: 0;
 }
 
-.brightness > img:hover {
+/* On hover, opacity becomes 1 */
+.zerath_brightness > img:hover {
     opacity: 1.0;
 }
 
-.img1 {
+/* First image class */
+.zerath_img1 {
   position: relative;
   top: 0;
   left: 0;
-  border: 1px red solid;
 }
 
-.img2 {
+/* Second image class. The two classes are necessary to be able to superimpose images at will on top of one another */
+.zerath_img2 {
   position: absolute;
   top: 0px;
   left: 0px;
-  border: 1px green solid;
 }
 
-.container {
+/* Container of geometrical shapes. Necessary so as to reset z stack. By default hidden with 0 size */
+.zerath_container {
   position: relative;
   z-index: 4;
   transform: scale(0%, 0%);
 }
 
-.rectangle {
+/* Text rectangle in which descriptions will be put */
+.zerath_rectangle {
   width: 400px;
   background: #0d2345;
   pointer-events : none;
@@ -53,7 +58,8 @@
 }
 
 
-.rectangle:before {
+/* Defines the magnifying glass */
+.zerath_rectangle:before {
   content: "";
   position: absolute;
   top: 250px;
@@ -65,7 +71,8 @@
   z-index: -1;
 }
 
-.rectangle:after{
+/* Defines the arm of the magnifying glass */
+.zerath_rectangle:after{
   content: "";
   width: 300px;
   height: 10px;
@@ -77,6 +84,19 @@
   z-index: -2;
 }
 
-.brightness > img:hover + .container{
+/* Lower position defines an info with same properties as above, but different position*/
+.zerath_rectangle[pos=lower]:before {
+  top: -200px;
+  left: -250px;
+}
+
+.zerath_rectangle[pos=lower]:after{
+  top: -50px;
+  left: -250px;
+  transform: rotate(45deg);
+}
+
+/* Finally on hover, scale up container to show it */
+.zerath_brightness > img:hover + .zerath_container{
   transform: scale(100%, 100%)
 }
